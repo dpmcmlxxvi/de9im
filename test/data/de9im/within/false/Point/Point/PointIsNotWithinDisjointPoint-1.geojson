@@ -1,0 +1,19 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Point",
+            "coordinates": [
+                -1,
+                0
+            ]
+        },
+        {
+            "type": "Point",
+            "coordinates": [
+                0,
+                0
+            ]
+        }
+    ]
+}

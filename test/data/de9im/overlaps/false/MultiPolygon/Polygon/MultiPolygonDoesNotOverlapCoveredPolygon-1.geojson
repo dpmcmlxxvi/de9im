@@ -1,0 +1,93 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                    [
+                        [
+                            [
+                                5,
+                                1
+                            ],
+                            [
+                                5,
+                                3
+                            ],
+                            [
+                                7,
+                                3
+                            ],
+                            [
+                                7,
+                                1
+                            ],
+                            [
+                                5,
+                                1
+                            ]
+                        ]
+                    ],
+                    [
+                        [
+                            [
+                                9,
+                                1
+                            ],
+                            [
+                                9,
+                                3
+                            ],
+                            [
+                                11,
+                                3
+                            ],
+                            [
+                                11,
+                                1
+                            ],
+                            [
+                                9,
+                                1
+                            ]
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            4,
+                            0
+                        ],
+                        [
+                            4,
+                            4
+                        ],
+                        [
+                            12,
+                            4
+                        ],
+                        [
+                            12,
+                            0
+                        ],
+                        [
+                            4,
+                            0
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
