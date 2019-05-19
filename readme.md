@@ -66,10 +66,16 @@ The `de9im` object has the following spatial predicate functions available:
     touches
     within
 
-Each predicate takes two arguments and returns true, false, or throws an
-exception if the geometry types provided are not supported. Each predicate
-should be interpreted as the first argument operating on the second. For
-example,
+Each predicate takes two GeoJSON arguments and an optional boolean argument:
+
+```javascript
+de9im.predicate(geojson1, geojson2, [error=true])
+```
+
+It returns true, false, or throws an exception if the geometry types provided
+are not supported. If the optional argument `error` is false then unsupported
+geometries return false instead of throwing an exception. Each predicate should
+be interpreted as the first argument operating on the second. For example,
 
 ```javascript
 de9im.contains(line, point)
@@ -90,7 +96,7 @@ points and lines.
 #### Argument Types
 
 Each predicate has a unique combination of first and second argument geometries
-that it supports. Using an unsupported argument throws an exception.
+that it supports.
 
  - `contains`, `covers`
 
