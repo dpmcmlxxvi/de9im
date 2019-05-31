@@ -27,8 +27,8 @@ is not bundled with `de9im`.
 #### In a browser
 
 ```html
-<script src="turf.min.js" charset="utf-8"></script>
-<script src="de9im.umd.js" charset="utf-8"></script>
+<script src="https://unpkg.com/@turf/turf" charset="utf-8"></script>
+<script src="https://unpkg.com/de9im" charset="utf-8"></script>
 ```
 
 #### In Node
