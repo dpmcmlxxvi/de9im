@@ -9,8 +9,8 @@ functions defined by the [Dimensionally Extended Nine-Intersection Model
 (DE-9IM)][de9im-wiki] and works with [GeoJSON][geojson-site] objects. It can
 test if two geometries have one of the following relationships: `contains`,
 `coveredby`, `covers`, `crosses`, `disjoint`, `equals`,  `intersects`,
-`overlaps`, `touches`, `within`. It can be used client-side in a browser or server-side
-with [Node.js][node-site].
+`overlaps`, `touches`, `within`. It can be used client-side in a browser or
+server-side with [Node.js][node-site].
 
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/DE-9IM#/media/File:TopologicSpatialRelarions2.png">
@@ -24,14 +24,14 @@ with [Node.js][node-site].
 operations which must be also included for client-side processing since Turf.js
 is not bundled with `de9im`.
 
-#### In a browser
+### In a browser
 
 ```html
 <script src="https://unpkg.com/@turf/turf" charset="utf-8"></script>
 <script src="https://unpkg.com/de9im" charset="utf-8"></script>
 ```
 
-#### In Node
+### In Node
 
 ```javascript
 npm install de9im
@@ -51,20 +51,22 @@ de9im.disjoint(line, point);
 
 ## USAGE
 
-#### API
+### API
 
 The `de9im` object has the following spatial predicate functions available:
 
-    contains
-    coveredby
-    covers
-    crosses
-    disjoint
-    equals
-    intersects
-    overlaps
-    touches
-    within
+```javascript
+contains
+coveredby
+covers
+crosses
+disjoint
+equals
+intersects
+overlaps
+touches
+within
+```
 
 Each predicate takes two GeoJSON arguments and an optional boolean argument:
 
@@ -82,9 +84,11 @@ de9im.contains(line, point)
 ```
 should be read as
 
-    line contains point?
+```shell
+line contains point?
+```
 
-#### Data Types
+### Data Types
 
 The arguments for every predicate can be any GeoJSON type: `Geometry`,
 `Feature`, `GeometryCollection`, `FeatureCollection`. All geometry types are
@@ -93,69 +97,73 @@ supported: `Point`, `LineString`, `Polygon`, `MultiPoint`, `MultiLineString`,
 collections. For example, a FeatureCollection can have points but can not mix
 points and lines.
 
-#### Argument Types
+### Argument Types
 
 Each predicate has a unique combination of first and second argument geometries
 that it supports.
 
- - `contains`, `covers`
+  - `contains`, `covers`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :x:                | :x:                |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | 1st / 2nd    | Point              | Line               | Polygon            |
+    |:------------:|:------------------:|:------------------:|:------------------:|
+    | **Point**    | :heavy_check_mark: | :x:                | :x:                |
+    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
- - `coveredby`, `within`
+  - `coveredby`, `within`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
+    | 1st / 2nd    | Point              | Line               | Polygon            |
+    |:------------:|:------------------:|:------------------:|:------------------:|
+    | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | **Line**     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+    | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
 
- - `crosses`
+  - `crosses`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+    | 1st / 2nd    | Point              | Line               | Polygon            |
+    |:------------:|:------------------:|:------------------:|:------------------:|
+    | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :x:                |
 
- - `disjoint`, `intersects`
+  - `disjoint`, `intersects`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | 1st / 2nd    | Point              | Line               | Polygon            |
+    |:------------:|:------------------:|:------------------:|:------------------:|
+    | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
- - `equals`, `overlaps`
+  - `equals`, `overlaps`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :x:                | :x:                |
-   | **Line**     | :x:                | :heavy_check_mark: | :x:                |
-   | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
+    | 1st / 2nd    | Point              | Line               | Polygon            |
+    |:------------:|:------------------:|:------------------:|:------------------:|
+    | **Point**    | :heavy_check_mark: | :x:                | :x:                |
+    | **Line**     | :x:                | :heavy_check_mark: | :x:                |
+    | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
 
- - `touches`
+  - `touches`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | 1st / 2nd    | Point              | Line               | Polygon            |
+    |:------------:|:------------------:|:------------------:|:------------------:|
+    | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ## TIPS
 
 The following are some best practices on using `de9im`:
 
- - Data is expected to be in [WGS 84][wgs84-wiki] coordinates as per the GeoJSON standard.
- - Data with the GeoJSON `bbox` attribute already defined will process faster.
- - Data with complex geometries (e.g., self-intersections, repeated coordinates)
-   may produce invalid results.
- - Data coordinates should be truncated to avoid unrealistically high precision
-   (more than 6 decimal places).
+  - Data is expected to be in [WGS 84][wgs84-wiki] coordinates as per the
+    GeoJSON standard.
+
+  - Data with the GeoJSON `bbox` attribute already defined will process faster.
+
+  - Data with complex geometries (e.g., self-intersections, repeated
+    coordinates) may produce invalid results.
+
+  - Data coordinates should be truncated to avoid unrealistically high precision
+    (more than 6 decimal places).
 
 ## BUILD
 
@@ -168,11 +176,10 @@ npm test
 
 ## LICENSE
 
-Copyright (c) 2019 Daniel Pulido <dpmcmlxxvi@gmail.com>
+Copyright (c) 2019 Daniel Pulido <mailto:dpmcmlxxvi@gmail.com>
 
 Source code is released under the [MIT License](http://opensource.org/licenses/MIT).
 
-[de9im-image]: https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/TopologicSpatialRelarions2.png/400px-TopologicSpatialRelarions2.png
 [de9im-site]: https://github.com/dpmcmlxxvi/de9im
 [de9im-wiki]: https://en.wikipedia.org/wiki/DE-9IM
 [geojson-site]: http://geojson.org/
