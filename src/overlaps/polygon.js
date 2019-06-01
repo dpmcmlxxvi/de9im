@@ -27,9 +27,11 @@ const overlapsPolygon = (polygons1, polygons2) => {
     }
 
     const centroid = turf.centroid(triangle);
-    if (util.point.isInPolygon(centroid, polygons2, false)) {
+    if (overlap.within === false &&
+        util.point.isInPolygon(centroid, polygons2, false)) {
       overlap.within = true;
-    } else if (util.point.isInPolygon(centroid, polygons2, true) == false) {
+    } else if (overlap.outside === false &&
+               util.point.isInPolygon(centroid, polygons2, true) == false) {
       overlap.outside = true;
     }
 
