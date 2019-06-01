@@ -1,11 +1,6 @@
 import triangulate from './triangulate';
 import * as turf from '@turf/turf';
 
-// Scaling factor to apply to features to attempt and recover from a known
-// Turfjs dependency numerical precision bug. The features will be scaled by
-// this scale factor, the clipping applied, then unscaled.
-const scaleFactor = 1.0;
-
 /**
  * @description Clip subject triangle using a triangle clipper. The result will
  *              be a collection of triangles that partition the subject triangle
@@ -19,21 +14,13 @@ const clip = (subject, clipper) => {
   const triangles = [];
 
   // Intersect subject with clipper and retriangulate intersection.
-  let intersection = clipIntersection(subject, clipper);
-  if (!intersection && scaleFactor != 1.0) {
-    // Attempt to recover from turf failure by scaling features.
-    intersection = clipScale(subject, clipper, scaleFactor, clipIntersection);
-  }
+  const intersection = clipIntersection(subject, clipper);
   if (intersection) {
     Array.prototype.push.apply(triangles, intersection);
   }
 
   // Difference subject with clipper and retriangulate difference.
-  let difference = clipDifference(subject, clipper);
-  if (!difference && scaleFactor != 1.0) {
-    // Attempt to recover from turf failure by scaling features.
-    difference = clipScale(subject, clipper, scaleFactor, clipDifference);
-  }
+  const difference = clipDifference(subject, clipper);
   if (difference) {
     Array.prototype.push.apply(triangles, difference);
   }
@@ -120,47 +107,6 @@ const clipIntersection = (subject, clipper) => {
   }
 
   return triangles;
-};
-
-/**
- * @description Apply operation to scaled subject & clipper then unscale result.
- * @param {Polygon} subject Triangle to be clipped.
- * @param {Polygon} clipper Triangle with which to clip.
- * @param {Number} scale Scaling factor.
- * @param {Function} operation CLipping operation to apply.
- * @private
- * @return {FeatureCollection<Polygon>} Collection of operation results
- *                                      or null if operation failed.
- */
-const clipScale = (subject, clipper, scale, operation) => {
-  const subjectScaled = turf.clone(subject);
-  const clipperScaled = turf.clone(clipper);
-  coordScale(subjectScaled, scale);
-  coordScale(clipperScaled, scale);
-
-  // Apply clipping operation and unscale results
-  let result = operation(subjectScaled, clipperScaled);
-  if (!result) {
-    return null;
-  }
-  result = turf.featureCollection(result);
-  coordScale(result, 1.0 / scale);
-
-  return result.features;
-};
-
-/**
- * @description Scale each GeoJSON coordinate.
- * @param {GeoJSON} geojson GeoJSON to scale.
- * @param {Number} scale Scaling factor.
- * @private
- */
-const coordScale = (geojson, scale) => {
-  turf.coordEach(geojson, (coordinate) => {
-    for (let i = 0; i < coordinate.length; ++i) {
-      coordinate[i] *= scale;
-    }
-  });
 };
 
 /**
