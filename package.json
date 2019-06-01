@@ -2,19 +2,27 @@
   "name": "de9im",
   "version": "1.1.0",
   "description": "DE-9IM spatial predicate library implemented in Javascript.",
-  "main": "./lib/de9im.umd.js",
-  "module": "./index.js",
+  "main": "de9im.js",
+  "module": "index.js",
+  "unpkg": "de9im.min.js",
+  "jsdelivr": "de9im.min.js",
   "scripts": {
     "build": "run-s lint bundle",
     "bundle": "rollup --silent -c",
     "lint": "run-s lint:js lint:md",
-    "lint:js": "eslint ./*.js ./src/**/*.js",
+    "lint:js": "eslint ./index.js ./src/**/*.js",
     "lint:md": "remark -q .",
     "prepare": "npm run build",
     "test": "run-s test:lint test:build",
-    "test:build": "nyc --reporter=lcov --reporter=text tape ./test/*.test.js",
+    "test:build": "nyc --reporter=lcov --reporter=text tap ./test/*.test.js",
     "test:lint": "eslint ./test/*.js"
   },
+  "files": [
+    "index.js",
+    "src/**/*.js",
+    "de9im.js",
+    "de9im.min.js"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dpmcmlxxvi/de9im.git"
@@ -53,9 +61,11 @@
     "rollup-plugin-commonjs": "9.3.4",
     "rollup-plugin-node-resolve": "4.2.3",
     "rollup-plugin-terser": "4.0.4",
-    "tape": "4.10.1"
+    "tap": "14.2.0"
   },
   "remarkConfig": {
-    "plugins": ["remark-preset-lint-markdown-style-guide"]
+    "plugins": [
+      "remark-preset-lint-markdown-style-guide"
+    ]
   }
 }

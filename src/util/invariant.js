@@ -1,4 +1,4 @@
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description Get base geometry type. Defined only for homogenous geometries.

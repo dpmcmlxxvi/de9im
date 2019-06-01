@@ -1,4 +1,4 @@
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description Compute centroid of each segment in GeoJSON.

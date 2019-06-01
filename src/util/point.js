@@ -1,6 +1,6 @@
 import helpers from './helpers';
 import meta from './meta';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description One or more points.

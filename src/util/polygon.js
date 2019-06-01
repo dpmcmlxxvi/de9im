@@ -4,7 +4,7 @@ import meta from './meta';
 import partition from './partition';
 import point from './point';
 import triangulate from './triangulate';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description One or more polygons.

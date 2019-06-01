@@ -1,5 +1,5 @@
 import point from './point';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 import util from '../util';
 
 /**

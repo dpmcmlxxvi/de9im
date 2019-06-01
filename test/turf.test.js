@@ -1,14 +1,14 @@
-const de9im = require('..');
-const glob = require('glob');
-const load = require('load-json-file');
-const path = require('path');
-const test = require('tape');
+import de9im from '../index';
+import glob from 'glob';
+import load from 'load-json-file';
+import path from 'path';
+import tap from 'tap';
 
 const ext = '*.geojson';
 
 // Test each predicate function
 Object.keys(de9im).forEach((predicate) => {
-  test('turf-' + predicate, (t) => {
+  tap.test('turf-' + predicate, (t) => {
     // Test true and false fixtures
     ['true', 'false'].forEach((type) => {
       const pattern = path.join(__dirname, 'data', 'turf', predicate, type,

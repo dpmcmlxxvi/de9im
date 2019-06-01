@@ -2,7 +2,7 @@ import helpers from './helpers';
 import meta from './meta';
 import partition from './partition';
 import point from './point';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description One or more lines.

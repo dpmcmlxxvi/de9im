@@ -14,28 +14,19 @@ const banner = `\
  */
 `;
 
-export default [{
+const build = (filename, plugins) => ({
   external: ['@turf/turf'],
   input: pkg.module,
-  output: [{
+  output: {
     banner: banner,
-    compact: true,
-    file: pkg.main,
+    file: filename,
     format: 'umd',
     name: pkg.name,
-    sourcemap: true,
-  }, {
-    banner: banner,
-    compact: true,
-    file: pkg.main.replace('umd', 'esm'),
-    format: 'esm',
-    name: pkg.name,
-    sourcemap: true,
-  }],
-  plugins: [
-    commonjs(),
-    resolve(),
-    terser(),
-  ],
-}];
+  },
+  plugins,
+});
 
+export default [
+  build('de9im.js', [commonjs(), resolve()]),
+  build('de9im.min.js', [commonjs(), resolve(), terser()]),
+];

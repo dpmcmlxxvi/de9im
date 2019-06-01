@@ -1,5 +1,5 @@
 import triangulate from './triangulate';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 // Scaling factor to apply to features to attempt and recover from a known
 // Turfjs dependency numerical precision bug. The features will be scaled by

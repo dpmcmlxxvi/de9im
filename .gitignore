@@ -3,3 +3,5 @@
 /coverage/
 /node_modules/
 *.code-workspace
+de9im.js
+de9im.min.js

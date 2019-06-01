@@ -1,5 +1,5 @@
 import earcut from 'earcut';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description Perform constrained triangulation of feature.

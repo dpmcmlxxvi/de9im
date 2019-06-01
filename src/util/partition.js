@@ -1,6 +1,6 @@
 import clipper from './clipper';
 import rbush from 'geojson-rbush';
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description Compute partition of line relative to boundaries of polygons.

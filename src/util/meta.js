@@ -1,4 +1,4 @@
-import turf from '@turf/turf';
+import * as turf from '@turf/turf';
 
 /**
  * @description Check if callback is true for every coordinate.

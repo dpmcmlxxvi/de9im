@@ -1,10 +1,23 @@
-export {default as contains} from './src/contains';
-export {default as coveredby} from './src/coveredby';
-export {default as covers} from './src/covers';
-export {default as crosses} from './src/crosses';
-export {default as disjoint} from './src/disjoint';
-export {default as equals} from './src/equals';
-export {default as intersects} from './src/intersects';
-export {default as overlaps} from './src/overlaps';
-export {default as touches} from './src/touches';
-export {default as within} from './src/within';
+import contains from './src/contains';
+import coveredby from './src/coveredby';
+import covers from './src/covers';
+import crosses from './src/crosses';
+import disjoint from './src/disjoint';
+import equals from './src/equals';
+import intersects from './src/intersects';
+import overlaps from './src/overlaps';
+import touches from './src/touches';
+import within from './src/within';
+
+export default {
+  contains,
+  coveredby,
+  covers,
+  crosses,
+  disjoint,
+  equals,
+  intersects,
+  overlaps,
+  touches,
+  within,
+};
