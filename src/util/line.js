@@ -29,15 +29,15 @@ const end = (linestring) => {
  * @return {Boolean} True if they are disjoint otherwise false.
  */
 const isDisjoint = (lines1, lines2) => {
-  // Check for any proper sement/segment intersections.
-  const intersections = isIntersecting(lines1, lines2, true);
-  if (intersections) {
-    return false;
-  }
-
   // Check for segment/segment overlaps.
   const overlaps = isOverlapping(lines1, lines2, true, false, true);
   if (overlaps) {
+    return false;
+  }
+
+  // Check for any proper sement/segment intersections.
+  const intersections = isIntersecting(lines1, lines2, true);
+  if (intersections) {
     return false;
   }
 
