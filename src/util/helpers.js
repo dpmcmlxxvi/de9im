@@ -56,7 +56,7 @@ const similar = (array1, array2, start1 = 0, start2 = 0, count =-1,
   }
 
   // Determine how many elements to check for equality.
-  const length = array1.length - 1;
+  const length = array1.length;
   if (count < 0) {
     count = length;
   }

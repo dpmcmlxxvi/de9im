@@ -158,11 +158,10 @@ const isSimilar = (lines1, lines2) => {
         const coords2 = line2.geometry.coordinates;
         const length2 = coords2.length-1;
         return (helpers.similar(coords1, coords2) ||
-          helpers.similar(coords1, coords2, 0, length2-1, length2, true));
+                helpers.similar(coords1, coords2, 0, length2, length2, true));
       });
     });
   };
-
   return findMatch(lines1, lines2) && findMatch(lines2, lines1);
 };
 
