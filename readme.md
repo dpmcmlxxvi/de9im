@@ -102,68 +102,68 @@ points and lines.
 Each predicate has a unique combination of first and second argument geometries
 that it supports.
 
- - `contains`, `covers`
+- `contains`, `covers`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :x:                | :x:                |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | 1st / 2nd    | Point              | Line               | Polygon            |
+  |:------------:|:------------------:|:------------------:|:------------------:|
+  | **Point**    | :heavy_check_mark: | :x:                | :x:                |
+  | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+  | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
- - `coveredby`, `within`
+- `coveredby`, `within`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
+  | 1st / 2nd    | Point              | Line               | Polygon            |
+  |:------------:|:------------------:|:------------------:|:------------------:|
+  | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | **Line**     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+  | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
 
- - `crosses`
+- `crosses`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+  | 1st / 2nd    | Point              | Line               | Polygon            |
+  |:------------:|:------------------:|:------------------:|:------------------:|
+  | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+  | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :x:                |
 
- - `disjoint`, `intersects`
+- `disjoint`, `intersects`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | 1st / 2nd    | Point              | Line               | Polygon            |
+  |:------------:|:------------------:|:------------------:|:------------------:|
+  | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
- - `equals`, `overlaps`
+- `equals`, `overlaps`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :heavy_check_mark: | :x:                | :x:                |
-   | **Line**     | :x:                | :heavy_check_mark: | :x:                |
-   | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
+  | 1st / 2nd    | Point              | Line               | Polygon            |
+  |:------------:|:------------------:|:------------------:|:------------------:|
+  | **Point**    | :heavy_check_mark: | :x:                | :x:                |
+  | **Line**     | :x:                | :heavy_check_mark: | :x:                |
+  | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
 
- - `touches`
+- `touches`
 
-   | 1st / 2nd    | Point              | Line               | Polygon            |
-   |:------------:|:------------------:|:------------------:|:------------------:|
-   | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-   | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-   | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | 1st / 2nd    | Point              | Line               | Polygon            |
+  |:------------:|:------------------:|:------------------:|:------------------:|
+  | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+  | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+  | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ## TIPS
 
 The following are some best practices on using `de9im`:
 
-  - Data is expected to be in [WGS 84][wgs84-wiki] coordinates as per the
-    GeoJSON standard.
+- Data is expected to be in [WGS 84][wgs84-wiki] coordinates as per the
+  GeoJSON standard.
 
-  - Data with the GeoJSON `bbox` attribute already defined will process faster.
+- Data with the GeoJSON `bbox` attribute already defined will process faster.
 
-  - Data with complex geometries (e.g., self-intersections, repeated
-    coordinates) may produce invalid results.
+- Data with complex geometries (e.g., self-intersections, repeated
+  coordinates) may produce invalid results.
 
-  - Data coordinates should be truncated to avoid unrealistically high precision
-    (more than 6 decimal places).
+- Data coordinates should be truncated to avoid unrealistically high precision
+  (more than 6 decimal places).
 
 ## BUILD
 
