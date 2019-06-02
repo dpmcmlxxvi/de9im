@@ -43,16 +43,8 @@ const isCoordinateSimilar = (coordinates1, coordinates2) => {
   // First find a pair of coordinates that are equal then check rest of array
   const length = coordinates1.length - 1;
   for (let i = 0; i < length; ++i) {
-    // Search for similarity in forward direction
-    if (helpers.similar(coordinates1, coordinates2, 0, i, 1, true)) {
-      if (helpers.similar(coordinates1, coordinates2, 0, i, length, true)) {
-        return true;
-      }
-    }
-
-    // Search for similarity in reverse direction
-    if (helpers.similar(coordinates1, coordinates2, 0, i, 1, false)) {
-      if (helpers.similar(coordinates1, coordinates2, 0, i, length, false)) {
+    if (helpers.similar(coordinates1, coordinates2, 0, i, 1)) {
+      if (helpers.similar(coordinates1, coordinates2, 0, i, length)) {
         return true;
       }
     }
