@@ -31,7 +31,7 @@ const overlapsPolygon = (polygons1, polygons2) => {
         util.point.isInPolygon(centroid, polygons2, false)) {
       overlap.within = true;
     } else if (overlap.outside === false &&
-               util.point.isInPolygon(centroid, polygons2, true) == false) {
+               util.point.isInPolygon(centroid, polygons2, true) === false) {
       overlap.outside = true;
     }
 

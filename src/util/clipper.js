@@ -28,7 +28,7 @@ const clip = (subject, clipper) => {
   // If no triangles were found then assume subject was not clipped.
   // This should only happen if Turf failed during intersection and
   // difference due to an on-going numerical precision bug.
-  if (triangles.length == 0) {
+  if (triangles.length === 0) {
     triangles.push(subject);
   }
 
