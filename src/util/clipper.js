@@ -54,13 +54,11 @@ const clipDifference = (subject, clipper) => {
     if (difference === null) {
       return null;
     }
-    if (difference && difference.geometry.type.includes('Polygon')) {
-      turf.flattenEach(difference, (flattened) => {
-        turf.featureEach(triangulate(flattened), (feature) => {
-          triangles.push(feature);
-        });
+    turf.flattenEach(difference, (flattened) => {
+      turf.featureEach(triangulate(flattened), (feature) => {
+        triangles.push(feature);
       });
-    }
+    });
   } catch (e) {
     // Turf differrence can fail for edge cases due to one of their
     // dependencies not handling numerical precision well.
@@ -142,12 +140,10 @@ const segment = (subject, clippers) => {
   });
 
   // Sort all coordinates in order from first vertex.
-  if (vertices.length >= 2) {
-    vertices.sort((a, b) => {
-      const start = subject.geometry.coordinates[0];
-      return turf.distance(a, start) - turf.distance(b, start);
-    });
-  }
+  vertices.sort((a, b) => {
+    const start = subject.geometry.coordinates[0];
+    return turf.distance(a, start) - turf.distance(b, start);
+  });
 
   return turf.lineString(vertices);
 };
