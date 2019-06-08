@@ -1,6 +1,6 @@
 {
   "name": "de9im",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "DE-9IM spatial predicate library implemented in Javascript.",
   "main": "de9im.js",
   "module": "index.js",
