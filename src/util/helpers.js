@@ -25,10 +25,12 @@ const centroids = (geojson) => {
 const disjoint = (geojson1, geojson2) => {
   const bbox1 = (geojson1.bbox ? geojson1.bbox : turf.bbox(geojson1));
   const bbox2 = (geojson2.bbox ? geojson2.bbox : turf.bbox(geojson2));
-  if ((bbox1[0] > bbox2[2]) ||
-    (bbox1[2] < bbox2[0]) ||
-    (bbox1[1] > bbox2[3]) ||
-    (bbox1[3] < bbox2[1])) {
+  const ndim1 = bbox1.length / 2;
+  const ndim2 = bbox2.length / 2;
+  if ((bbox1[0] > bbox2[ndim2]) || (bbox1[ndim1] < bbox2[0])) {
+    return true;
+  }
+  if ((bbox1[1] > bbox2[ndim2+1]) || (bbox1[ndim1+1] < bbox2[1])) {
     return true;
   }
   return false;
