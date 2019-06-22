@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "coveralls": "3.0.4",
-    "eslint": "5.16.0",
+    "eslint": "6.0.0",
     "eslint-config-google": "0.13.0",
     "esm": "3.2.25",
     "glob": "7.1.4",
