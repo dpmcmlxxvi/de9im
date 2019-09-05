@@ -47,7 +47,7 @@
   "devDependencies": {
     "coveralls": "^3.0.4",
     "eslint": "^6.0.0",
-    "eslint-config-google": "^0.13.0",
+    "eslint-config-google": "^0.14.0",
     "esm": "^3.2.25",
     "glob": "^7.1.4",
     "load-json-file": "^6.1.0",
