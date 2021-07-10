@@ -41,7 +41,7 @@
   "homepage": "https://github.com/dpmcmlxxvi/de9im",
   "dependencies": {
     "@turf/turf": "5.1.6",
-    "earcut": "2.2.2",
+    "earcut": "2.2.3",
     "geojson-rbush": "2.2.1"
   },
   "devDependencies": {
