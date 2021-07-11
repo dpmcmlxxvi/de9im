@@ -3,7 +3,7 @@
 [![build](https://travis-ci.org/dpmcmlxxvi/de9im.svg?branch=master)](https://travis-ci.org/dpmcmlxxvi/de9im)
 [![coverage](https://img.shields.io/coveralls/dpmcmlxxvi/de9im.svg)](https://coveralls.io/r/dpmcmlxxvi/de9im?branch=master)
 [![npm](https://badge.fury.io/js/de9im.svg)](https://badge.fury.io/js/de9im)
-[![code](https://api.codacy.com/project/badge/Grade/fb098a8b1f584904b39bd32860ac4742)](https://www.codacy.com/app/dpmcmlxxvi/de9im?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dpmcmlxxvi/de9im&amp;utm_campaign=Badge_Grade) 
+[![code](https://app.codacy.com/project/badge/Grade/d345359c8f91405da92ed455cd82288d)](https://www.codacy.com/gh/dpmcmlxxvi/de9im/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dpmcmlxxvi/de9im&amp;utm_campaign=Badge_Grade)
 
 `de9im` is a Javascript library that provides spatial predicate
 functions defined by the [Dimensionally Extended Nine-Intersection Model
