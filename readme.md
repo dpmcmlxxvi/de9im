@@ -11,7 +11,9 @@ functions defined by the [Dimensionally Extended Nine-Intersection Model
 test if two geometries have one of the following relationships: `contains`,
 `coveredby`, `covers`, `crosses`, `disjoint`, `equals`,  `intersects`,
 `overlaps`, `touches`, `within`. It can be used client-side in a browser or
-server-side with [Node.js][node-site].
+server-side with [Node.js][node-site]. See [pouchdb-geospatial][pouchdb-geospatial]
+for an example application that uses `de9im` to perform spatial querying of
+GeoJSON objects in a database.
 
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/DE-9IM#/media/File:TopologicSpatialRelarions2.png">
@@ -185,5 +187,6 @@ Source code is released under the [MIT License](http://opensource.org/licenses/M
 [de9im-wiki]: https://en.wikipedia.org/wiki/DE-9IM
 [geojson-site]: http://geojson.org/
 [node-site]: http://nodejs.org/
+[pouchdb-geospatial]: https://github.com/dpmcmlxxvi/pouchdb-geospatial
 [turf-site]: https://turfjs.org
 [wgs84-wiki]: https://en.wikipedia.org/wiki/World_Geodetic_System
