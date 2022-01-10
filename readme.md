@@ -168,6 +168,12 @@ The following are some best practices on using `de9im`:
 -   Data coordinates should be truncated to avoid unrealistically high precision
     (more than 6 decimal places).
 
+## ALGORITHM NOTES
+
+The `de9im` library uses a partition approach to determine if two geometries satify a given relation. This approach is different from the standard node/edge labeling used by most DE-9IM implementations. Labeling approaches are only defined for single geometries and not multi-geometries or collections and it is not clear how to extend them to cover those cases.
+
+Instead, `de9im` partitions each input geometry into elementary facets, where each facet is either inside or the other geometry. For example, to test two (multi-) polygons, the first (multi-) polygon is triangulated. This triangulation gets intersected with the other polygon's triangulation. This intersection gets partitioned. This partition is re-triangulated to create a decomposition of the first polygon such that each partition triangle is entirely inside or outside the second polygon. The same goes for lines using segments as the facets instead of triangles. This allows any geometry or collection type to be processed.
+
 ## BUILD
 
 To build and test the library locally:
