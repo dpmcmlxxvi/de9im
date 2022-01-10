@@ -170,9 +170,9 @@ The following are some best practices on using `de9im`:
 
 ## ALGORITHM NOTES
 
-The `de9im` library uses a partition approach to determine if two geometries satify a given relation. This approach is different from the standard node/edge labeling used by most DE-9IM implementations. Labeling approaches are only defined for single geometries and not multi-geometries or collections and it is not clear how to extend them to cover those cases.
+The `de9im` library uses a partition approach to determine if two geometries satisfy a given relation. This approach is different from the standard node/edge labeling used by most DE-9IM implementations. Labeling approaches are only defined for single geometries and not multi-geometries or collections and it is not clear how to extend them to cover those cases.
 
-Instead, `de9im` partitions each input geometry into elementary facets, where each facet is either inside or the other geometry. For example, to test two (multi-) polygons, the first (multi-) polygon is triangulated. This triangulation gets intersected with the other polygon's triangulation. This intersection gets partitioned. This partition is re-triangulated to create a decomposition of the first polygon such that each partition triangle is entirely inside or outside the second polygon. The same goes for lines using segments as the facets instead of triangles. This allows any geometry or collection type to be processed.
+Instead, `de9im` partitions each input geometry into elementary facets, where each facet is either inside or outside the other geometry. For example, to test two (multi-) polygons, the first (multi-) polygon is triangulated. This triangulation gets intersected with the other polygon's triangulation. This intersection gets re-triangulated to create a decomposition of the first (multi-) polygon such that each partition triangle (facet) is entirely inside or outside the second (multi-) polygon. Finally, the decision of whether the geometries satisfy the given predicate can be reduced to determining if the individual facets satisfy the relation. The same goes for lines using segments as the facets instead of triangles. This allows any geometry or collection type to be processed.
 
 ## BUILD
 
