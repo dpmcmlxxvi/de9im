@@ -174,6 +174,8 @@ The `de9im` library uses a partition approach to determine if two geometries sat
 
 Instead, `de9im` partitions each input geometry into elementary facets, where each facet is either inside or outside the other geometry. For example, to test two (multi-) polygons, the first (multi-) polygon is triangulated. This triangulation gets intersected with the other (multi-) polygon's triangulation. This intersection gets re-triangulated to create a decomposition of the first (multi-) polygon such that each partition triangle (facet) is entirely inside or outside the second (multi-) polygon. Finally, the decision of whether the geometries satisfy the given predicate can be reduced to determining if the individual facets satisfy the relation. The same goes for lines using segments as the facets instead of triangles. This allows any geometry or collection type to be processed.
 
+Finally, while `de9im` has `turf` as a dependency, it does not use its DE-9IM functions since it has only limited functionality and only covers a small subset of all possible geometry and predicate combinations. The goal of `de9im` is to cover all possible combinations. The `turf` library is only used for basic spatial processing and geometry utility functions.
+
 ## BUILD
 
 To build and test the library locally:
