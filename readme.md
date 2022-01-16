@@ -11,9 +11,9 @@ functions defined by the [Dimensionally Extended Nine-Intersection Model
 test if two geometries have one of the following relationships: `contains`,
 `coveredby`, `covers`, `crosses`, `disjoint`, `equals`,  `intersects`,
 `overlaps`, `touches`, `within`. It can be used client-side in a browser or
-server-side with [Node.js][node-site]. See [pouchdb-geospatial][pouchdb-geospatial]
-for an example application that uses `de9im` to perform spatial querying of
-GeoJSON objects in a database.
+server-side with [Node.js][node-site]. See
+[pouchdb-geospatial][pouchdb-geospatial] for an example application that uses
+`de9im` to perform spatial querying of GeoJSON objects in a database.
 
 <p align="center">
   <a href="https://en.wikipedia.org/wiki/DE-9IM#/media/File:TopologicSpatialRelarions2.png">
@@ -170,11 +170,29 @@ The following are some best practices on using `de9im`:
 
 ## ALGORITHM NOTES
 
-The `de9im` library uses a partition approach to determine if two geometries satisfy a given relation. This approach is different from the standard node/edge labeling used by most DE-9IM implementations. Labeling approaches are only defined for single geometries and not multi-geometries or collections and it is not clear how to extend them to cover those cases.
+The `de9im` library uses a partition approach to determine if two geometries
+satisfy a given relation. This approach is different from the standard node/edge
+labeling used by most DE-9IM implementations. Labeling approaches are only
+defined for single geometries and not multi-geometries or collections and it is
+not clear how to extend them to cover those cases.
 
-Instead, `de9im` partitions each input geometry into elementary facets, where each facet is either inside or outside the other geometry. For example, to test two (multi-) polygons, the first (multi-) polygon is triangulated. This triangulation gets intersected with the other (multi-) polygon's triangulation. This intersection gets re-triangulated to create a decomposition of the first (multi-) polygon such that each partition triangle (facet) is entirely inside or outside the second (multi-) polygon. Finally, the decision of whether the geometries satisfy the given predicate can be reduced to determining if the individual facets satisfy the relation. The same goes for lines using segments as the facets instead of triangles. This allows any geometry or collection type to be processed.
+Instead, `de9im` partitions each input geometry into elementary facets, where
+each facet is either inside or outside the other geometry. For example, to test
+two (multi-) polygons, the first (multi-) polygon is triangulated. This
+triangulation gets intersected with the other (multi-) polygon's triangulation.
+This intersection gets re-triangulated to create a decomposition of the first
+(multi-) polygon such that each partition triangle (facet) is entirely inside or
+outside the second (multi-) polygon. Finally, the decision of whether the
+geometries satisfy the given predicate can be reduced to determining if the
+individual facets satisfy the relation. The same goes for lines using segments
+as the facets instead of triangles. This allows any geometry or collection type
+to be processed.
 
-Finally, while `de9im` has `turf` as a dependency, it does not use its DE-9IM functions since it has only limited functionality and only covers a small subset of all possible geometry and predicate combinations. The goal of `de9im` is to cover all possible combinations. The `turf` library is only used for basic spatial processing and geometry utility functions.
+Finally, while `de9im` has `turf` as a dependency, it does not use its DE-9IM
+functions since it has only limited functionality and only covers a small subset
+of all possible geometry and predicate combinations. The goal of `de9im` is to
+cover all possible combinations. The `turf` library is only used for basic
+spatial processing and geometry utility functions.
 
 ## BUILD
 
