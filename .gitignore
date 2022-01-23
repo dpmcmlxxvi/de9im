@@ -1,5 +1,6 @@
 /.nyc_output/
 /.vscode/
+/benchmark/
 /coverage/
 /node_modules/
 *.code-workspace

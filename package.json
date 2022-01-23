@@ -14,6 +14,9 @@
     "lint:md": "remark -q .",
     "prepare": "npm run build",
     "test": "run-s test:lint test:build",
+    "test:bench": "run-s test:bench:run test:bench:report",
+    "test:bench:run": "node ./test/bench.js",
+    "test:bench:report": "node ./test/report.js",
     "test:build": "nyc --reporter=lcov --reporter=text tap ./test/*.test.js",
     "test:lint": "eslint ./test/*.js"
   },
@@ -45,11 +48,13 @@
     "geojson-rbush": "2.2.1"
   },
   "devDependencies": {
+    "benny": "^3.7.1",
     "coveralls": "^3.0.4",
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0",
     "esm": "^3.2.25",
     "glob": "^7.1.4",
+    "json2md": "^1.12.0",
     "load-json-file": "^6.1.0",
     "np": "^6.0.0",
     "npm-run-all": "^4.1.5",

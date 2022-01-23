@@ -1,0 +1,79 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [
+                        6,
+                        5
+                    ],
+                    [
+                        7,
+                        5
+                    ],
+                    [
+                        8,
+                        5
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            0,
+                            0
+                        ],
+                        [
+                            0,
+                            10
+                        ],
+                        [
+                            10,
+                            10
+                        ],
+                        [
+                            10,
+                            0
+                        ],
+                        [
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            3,
+                            3
+                        ],
+                        [
+                            3,
+                            7
+                        ],
+                        [
+                            7,
+                            7
+                        ],
+                        [
+                            7,
+                            3
+                        ],
+                        [
+                            3,
+                            3
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

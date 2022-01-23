@@ -203,6 +203,10 @@ npm install
 npm test
 ```
 
+## BENCHMARK
+
+Benchmark timing results can be found at [bench.md](bench.md).
+
 ## LICENSE
 
 Copyright (c) 2019 Daniel Pulido <mailto:dpmcmlxxvi@gmail.com>
