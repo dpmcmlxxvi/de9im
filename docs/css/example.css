@@ -1,0 +1,47 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#banner
+{
+    background-color: #000000;
+    color: #ffffff;
+    height: 40px;
+    left: 0;
+    line-height: 40px;
+    padding-left: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+#explorer
+{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 40px;
+}
+
+#label
+{
+  text-decoration: none;
+  color: white;
+  font-size: 11pt;
+  font-weight: bold;
+  text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+#marker
+{
+  width: 20px;
+  height: 20px;
+  border: 1px solid #088;
+  border-radius: 10px;
+  background-color: #0ff;
+  opacity: 0.5;
+}

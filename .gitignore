@@ -2,6 +2,7 @@
 /.vscode/
 /benchmark/
 /coverage/
+/docs/data/
 /node_modules/
 *.code-workspace
 de9im.js
