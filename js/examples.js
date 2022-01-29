@@ -107,6 +107,53 @@ const loadExamples = function(id) {
     ]
   };
 
+  // ==================================================
+  // Geometry rendering styles
+  // --------------------------------------------------
+  const styleFeature1 = {
+    LineString: new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: [255, 0, 0],
+        width: 5
+      })
+    }),
+    MultiPoint: new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: 5,
+        fill: null,
+        stroke: new ol.style.Stroke({color: 'red', width: 5})
+      })
+    }),
+    Polygon: new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: [255, 0, 0],
+        width: 5
+      })
+    })
+  };
+
+  const styleFeature2 = {
+    LineString: new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: [0, 255, 0],
+        width: 5
+      })
+    }),
+    MultiPoint: new ol.style.Style({
+      image: new ol.style.Circle({
+        radius: 5,
+        fill: null,
+        stroke: new ol.style.Stroke({color: 'green', width: 5})
+      })
+    }),
+    Polygon: new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: [0, 255, 0],
+        width: 5
+      })
+    })
+  };
+
   // Container for layers added for each geometry combination
   const layers = {};
   const groups = {};
@@ -121,6 +168,8 @@ const loadExamples = function(id) {
     layers[geometry] = [];
 
     const names = geometry.split("/");
+    const name1 = names[0];
+    const name2 = names[1];
     const predicates = datasets[geometry];
     const requestsPredicates = [];
 
@@ -139,18 +188,15 @@ const loadExamples = function(id) {
           dataProjection: 'EPSG:4326',
           featureProjection: explorer.map.getView().getProjection()
         });
-        const vector1 = new ol.layer.Vector({
+        const options1 = {
           source: new ol.source.Vector({
             features: features1,
           }),
-          style: new ol.style.Style({
-            stroke: new ol.style.Stroke({
-              color: [255, 0, 0],
-              width: 5
-            })
-          })
-        });
-        vector1.set('name', names[0] + ' #1');
+          style: styleFeature1[name1]
+        };
+
+        const vector1 = new ol.layer.Vector(options1);
+        vector1.set('name', name1 + ' #1');
         vector1.setVisible(false);
 
         // Feature #2
@@ -158,31 +204,28 @@ const loadExamples = function(id) {
           dataProjection: 'EPSG:4326',
           featureProjection: explorer.map.getView().getProjection()
         });
-        const vector2 = new ol.layer.Vector({
+        const options2 = {
           source: new ol.source.Vector({
             features: features2,
           }),
-          style: new ol.style.Style({
-            stroke: new ol.style.Stroke({
-              color: [0, 255, 0],
-              width: 5
-            })
-          })
-        });
-        vector2.set('name', names[1] + ' #1');
+          style: styleFeature2[name2]
+        };
+
+        const vector2 = new ol.layer.Vector(options2);
+        vector2.set('name', name2 + ' #2');
         vector2.setVisible(false);
 
         // ==================================================
         // Add predicate group
         // --------------------------------------------------
         const group = new ol.layer.Group({
-          layers: [vector1, vector2],
+          layers: [vector2, vector1],
         });
         group.set('name', predicate);
         layers[geometry].push(group);
 
       }).fail(function() {
-        console.log(`${names[0]} ${predicate} ${names[1]} not found.`);
+        console.log(`${name1} ${predicate} ${name2} not found.`);
       });
       requestsPredicates.push(request);
     });
@@ -193,6 +236,7 @@ const loadExamples = function(id) {
     const request = $.when(...requestsPredicates).then(data => {
 
       // Add geometry pair group
+      layers[geometry].sort((a,b) => (a.get('name') > b.get('name')) ? -1 : ((b.get('name') > a.get('name')) ? 1 : 0))
       const group = new ol.layer.Group({
         layers: layers[geometry],
       });
