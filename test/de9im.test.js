@@ -1,8 +1,8 @@
-import de9im from '../index';
-import glob from 'glob';
-import load from 'load-json-file';
-import path from 'path';
-import tap from 'tap';
+const de9im = require('./de9im.loader').default;
+const fs = require('fs');
+const glob = require('glob');
+const path = require('path');
+const tap = require('tap');
 
 const ext = '*.geojson';
 
@@ -16,7 +16,7 @@ Object.keys(de9im).forEach((predicate) => {
       glob.sync(pattern).forEach((filepath) => {
         // Extract fixtures
         const name = path.parse(filepath).name;
-        const geojson = load.sync(filepath);
+        const geojson = JSON.parse(fs.readFileSync(filepath));
         const feature1 = geojson.features[0];
         const feature2 = geojson.features[1];
 

@@ -1,8 +1,8 @@
 // Perform timing bench tests
 const benny = require('benny');
 const de9im = require('../de9im');
+const fs = require('fs');
 const glob = require('glob');
-const load = require('load-json-file');
 const pkg = require('../package');
 const path = require('path');
 
@@ -13,7 +13,7 @@ glob.sync(pattern).forEach((filepath) => {
 
   // Extract fixtures
   const name = path.parse(filepath).name;
-  const geojson = load.sync(filepath);
+  const geojson = JSON.parse(fs.readFileSync(filepath));
   const feature1 = geojson.features[0];
   const feature2 = geojson.features[1];
   const geometry1 = feature1.geometry.type;

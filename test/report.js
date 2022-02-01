@@ -3,7 +3,6 @@ const de9im = require('../de9im');
 const fs = require('fs');
 const glob = require('glob');
 const json2md = require('json2md');
-const load = require('load-json-file');
 const pkg = require('../package');
 const path = require('path');
 
@@ -25,7 +24,7 @@ const rows = [];
 const pattern = path.join(__dirname, '..', 'benchmark', 'results', '*.json');
 glob.sync(pattern).forEach((filepath) => {
   // Extract 'name' and 'ops' for each result
-  const json = load.sync(filepath);
+  const json = JSON.parse(fs.readFileSync(filepath));
   const [first, relation, second] = json.name.split('-');
   const type = {'first': first, 'relation': relation, 'second': second};
   const results = json.results.map((result) => {
