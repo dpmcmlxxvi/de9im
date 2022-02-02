@@ -111,51 +111,51 @@ that it supports.
 
 -   `contains`, `covers`
 
-    | 1st / 2nd    | Point              | Line               | Polygon            |
-    |:------------:|:------------------:|:------------------:|:------------------:|
-    | **Point**    | :heavy_check_mark: | :x:                | :x:                |
-    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :x:                |
-    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | 1st / 2nd | Point              | Line               | Polygon            |
+    |:---------:|:------------------:|:------------------:|:------------------:|
+    | Point     | :heavy_check_mark: | :x:                | :x:                |
+    | Line      | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+    | Polygon   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 -   `coveredby`, `within`
 
-    | 1st / 2nd    | Point              | Line               | Polygon            |
-    |:------------:|:------------------:|:------------------:|:------------------:|
-    | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-    | **Line**     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-    | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
+    | 1st / 2nd | Point              | Line               | Polygon            |
+    |:---------:|:------------------:|:------------------:|:------------------:|
+    | Point     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | Line      | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+    | Polygon   | :x:                | :x:                | :heavy_check_mark: |
 
 -   `crosses`
 
-    | 1st / 2nd    | Point              | Line               | Polygon            |
-    |:------------:|:------------------:|:------------------:|:------------------:|
-    | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :x:                |
+    | 1st / 2nd | Point              | Line               | Polygon            |
+    |:---------:|:------------------:|:------------------:|:------------------:|
+    | Point     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+    | Line      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | Polygon   | :heavy_check_mark: | :heavy_check_mark: | :x:                |
 
 -   `disjoint`, `intersects`
 
-    | 1st / 2nd    | Point              | Line               | Polygon            |
-    |:------------:|:------------------:|:------------------:|:------------------:|
-    | **Point**    | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | 1st / 2nd | Point              | Line               | Polygon            |
+    |:---------:|:------------------:|:------------------:|:------------------:|
+    | Point     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | Line      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | Polygon   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 -   `equals`, `overlaps`
 
-    | 1st / 2nd    | Point              | Line               | Polygon            |
-    |:------------:|:------------------:|:------------------:|:------------------:|
-    | **Point**    | :heavy_check_mark: | :x:                | :x:                |
-    | **Line**     | :x:                | :heavy_check_mark: | :x:                |
-    | **Polygon**  | :x:                | :x:                | :heavy_check_mark: |
+    | 1st / 2nd | Point              | Line               | Polygon            |
+    |:---------:|:------------------:|:------------------:|:------------------:|
+    | Point     | :heavy_check_mark: | :x:                | :x:                |
+    | Line      | :x:                | :heavy_check_mark: | :x:                |
+    | Polygon   | :x:                | :x:                | :heavy_check_mark: |
 
 -   `touches`
 
-    | 1st / 2nd    | Point              | Line               | Polygon            |
-    |:------------:|:------------------:|:------------------:|:------------------:|
-    | **Point**    | :x:                | :heavy_check_mark: | :heavy_check_mark: |
-    | **Line**     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-    | **Polygon**  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | 1st / 2nd | Point              | Line               | Polygon            |
+    |:---------:|:------------------:|:------------------:|:------------------:|
+    | Point     | :x:                | :heavy_check_mark: | :heavy_check_mark: |
+    | Line      | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+    | Polygon   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 
 ## TIPS
 
