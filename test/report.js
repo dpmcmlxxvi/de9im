@@ -40,8 +40,8 @@ glob.sync(pattern).forEach((filepath) => {
   // Highlight fastest and slowest 'ops'.
   const fastest = json.fastest.name;
   const slowest = json.slowest.name;
-  row[fastest] = '<span style="color:green">**' + row[fastest] + '**</span>';
-  row[slowest] = '<span style="color:red">**' + row[slowest] + '**</span>';
+  row[fastest] = '*<span style="color:green">' + row[fastest] + '</span>*';
+  row[slowest] = '*<span style="color:red">' + row[slowest] + '</span>*';
   rows.push({...type, ...row});
 });
 
