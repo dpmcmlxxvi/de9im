@@ -27,7 +27,7 @@ glob.sync(pattern).forEach((filepath) => {
   const [first, relation, second] = json.name.split('-');
   const type = {'first': first, 'relation': relation, 'second': second};
   const results = json.results.map((result) => {
-    return [result.name, parseInt(result.ops).toLocaleString()];
+    return [result.name, parseInt(result.ops, 10).toLocaleString()];
   });
   const row = Object.fromEntries(results);
   predicates.forEach((predicate) => {
