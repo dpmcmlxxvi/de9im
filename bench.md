@@ -1,8 +1,12 @@
 # Timing bench test results for `de9im`
 
+The following presents the number of operations per second to process each
+pair of geometries with the given relation by each predicate. An :x:
+indicates the predicate is not supported for those geometries. The fastest
+and slowest times are highlighted. The geometries tested are in
+`test/data/bench`.
 
-The following presents the number of operations per second to process each pair of geometries with the given relation by each predicate. An :x: indicates the predicate is not supported for those geometries. The fastest and slowest times are highlighted. The geometries tested are in `test/data/bench`.
-
+<!--lint disable maximum-line-length-->
 | first | relation | second | contains | coveredby | covers | crosses | disjoint | equals | intersects | overlaps | touches | within |
 |:-----:|:--------:|:------:|:--------:|:---------:|:------:|:-------:|:--------:|:------:|:----------:|:--------:|:-------:|:------:|
 | LineString | contains | LineString | 44,169 | 491,200 | 44,210 | 48,136 | 46,871 | 428,754 | 46,482 | <span style="color:red">**16,088**</span> | 32,246 | <span style="color:green">**491,281**</span> |
@@ -49,3 +53,5 @@ The following presents the number of operations per second to process each pair 
 | Polygon | overlaps | Polygon | <span style="color:green">**420,752**</span> | 111 | 413,050 | :x: | 13,634 | 115 | 13,720 | <span style="color:red">**76**</span> | 275,597 | 115 |
 | Polygon | touches | Polygon | <span style="color:green">**414,684**</span> | 496 | 409,453 | :x: | 40,679 | 496 | 41,321 | 496 | 470 | <span style="color:red">**460**</span> |
 | Polygon | within | Polygon | 236,097 | <span style="color:red">**57**</span> | 235,829 | :x: | 57 | 57 | 57 | 57 | <span style="color:green">**241,246**</span> | 57 |
+
+<!--lint enable maximum-line-length-->

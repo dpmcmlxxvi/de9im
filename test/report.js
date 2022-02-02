@@ -9,11 +9,10 @@ const path = require('path');
 // Create report introduction
 const title = 'Timing bench test results for `' + pkg.name + '`';
 const introduction = 'The following presents the number of operations per ' +
-                     'second to process each pair of geometries with the ' +
-                     'given relation by each predicate. An :x: indicates the ' +
-                     'predicate is not supported for those geometries. The ' +
-                     'fastest and slowest times are highlighted. The ' +
-                     'geometries tested are in `test/data/bench`.';
+  'second to process each\npair of geometries with the given relation by ' +
+  'each predicate. An :x:\nindicates the predicate is not supported for ' +
+  'those geometries. The fastest\nand slowest times are highlighted. The ' +
+  'geometries tested are in\n`test/data/bench`.';
 
 // Create report table
 const predicates = Object.keys(de9im);
@@ -69,17 +68,24 @@ const data = [
     'p': introduction,
   },
   {
+    'p': '<!--lint disable maximum-line-length-->',
+  },
+  {
     'table': {
       'headers': headers,
       'rows': rows,
     },
   },
+  {
+    'p': '<!--lint enable maximum-line-length-->',
+  },
 ];
 
-// Generate report and center columns
+// Generate report, center columns, and remove multiple newlines for linting.
 let report = json2md(data);
 report = report.replace(/\| \-/g, '|:-');
 report = report.replace(/\- \|/g, '-:|');
+report = report.replace(/\n\n/g, '\n');
 
 // Export to file.
 filename = path.join(__dirname, '..', 'bench.md');
