@@ -1,6 +1,6 @@
 # [de9im][de9im-site]
 
-[![build](https://travis-ci.org/dpmcmlxxvi/de9im.svg?branch=master)](https://travis-ci.org/dpmcmlxxvi/de9im)
+[![build](https://github.com/dpmcmlxxvi/de9im/actions/workflows/build.yml/badge.svg)](https://github.com/dpmcmlxxvi/de9im/actions)
 [![coverage](https://img.shields.io/coveralls/dpmcmlxxvi/de9im.svg)](https://coveralls.io/r/dpmcmlxxvi/de9im?branch=master)
 [![npm](https://badge.fury.io/js/de9im.svg)](https://badge.fury.io/js/de9im)
 [![code](https://app.codacy.com/project/badge/Grade/d345359c8f91405da92ed455cd82288d)](https://www.codacy.com/gh/dpmcmlxxvi/de9im/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=dpmcmlxxvi/de9im&amp;utm_campaign=Badge_Grade)
