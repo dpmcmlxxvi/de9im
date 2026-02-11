@@ -1,13 +1,13 @@
-import point from './point';
+import point from './point.js';
 import * as turf from '@turf/turf';
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if line(s) #1 touches line(s) #2.
  * @param {Lines} lines1 Line #1 to be tested.
  * @param {Lines} lines2 Line #2 to be tested.
  * @private
- * @return {Boolean} True if they touch otherwise false.
+ * @returns {Boolean} True if they touch otherwise false.
  */
 const touchesLine = (lines1, lines2) => {
   if (util.helpers.disjoint(lines1, lines2)) {
@@ -37,7 +37,7 @@ const touchesLine = (lines1, lines2) => {
  * @param {Lines} lines Lines to test.
  * @param {Points} points Points to test.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesPoint = (lines, points) => {
   return point.touchesLine(points, lines);
@@ -48,7 +48,7 @@ const touchesPoint = (lines, points) => {
  * @param {Lines} lines Lines to test.
  * @param {Polygons} polygons Polygons to test.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesPolygon = (lines, polygons) => {
   if (util.helpers.disjoint(lines, polygons)) {

@@ -1,4 +1,4 @@
-import clipper from './clipper';
+import clipper from './clipper.js';
 import rbush from 'geojson-rbush';
 import * as turf from '@turf/turf';
 
@@ -7,7 +7,7 @@ import * as turf from '@turf/turf';
  * @param {LineString} linestring Line to be partitioned.
  * @param {Polgons} polygons Polygon with which to partition.
  * @private
- * @return {LineString} Partitioned line.
+ * @returns {LineString} Partitioned line.
  */
 const boundaries = (linestring, polygons) => {
   let linePartition = linestring;
@@ -25,7 +25,7 @@ const boundaries = (linestring, polygons) => {
  * @param {LineString} line1 Line #1.
  * @param {Lines} lines2 Line #2.
  * @private
- * @return {LineString} Line partition of line #1.
+ * @returns {LineString} Line partition of line #1.
  */
 const line = (line1, lines2) => {
   const coordinates = [];
@@ -63,7 +63,7 @@ const line = (line1, lines2) => {
  * @param {FeatureCollection<Polygon>} triangulation1 Polygon #1 triangulation.
  * @param {FeatureCollection<Polygon>} triangulation2 Polygon #2 triangulation.
  * @private
- * @return {FeatureCollection<Polygon>} Triangle partition of polygon #1.
+ * @returns {FeatureCollection<Polygon>} Triangle partition of polygon #1.
  */
 const polygon = (triangulation1, triangulation2) => {
   const triangles = [];

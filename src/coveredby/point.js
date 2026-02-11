@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if point(s) coveredby line(s).
  * @param {Points} points Point to test.
  * @param {Lines} lines Line to test.
  * @private
- * @return {Boolean} True if coveredby otherwise false.
+ * @returns {Boolean} True if coveredby otherwise false.
  */
 const coveredbyLine = (points, lines) => {
   if (util.helpers.disjoint(points, lines)) {
@@ -21,7 +21,7 @@ const coveredbyLine = (points, lines) => {
  * @param {Points} points1 Point #1 to test.
  * @param {Points} points2 Point #2 to test.
  * @private
- * @return {Boolean} True if coveredby otherwise false.
+ * @returns {Boolean} True if coveredby otherwise false.
  */
 const coveredbyPoint = (points1, points2) => {
   if (util.helpers.disjoint(points1, points2)) {
@@ -37,7 +37,7 @@ const coveredbyPoint = (points1, points2) => {
  * @param {Points} points Point to test.
  * @param {Polygons} polygons Polygon to test.
  * @private
- * @return {Boolean} True if coveredby otherwise false.
+ * @returns {Boolean} True if coveredby otherwise false.
  */
 const coveredbyPolygon = (points, polygons) => {
   if (util.helpers.disjoint(points, polygons)) {

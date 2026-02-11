@@ -1,12 +1,12 @@
-import line from './line';
-import point from './point';
+import line from './line.js';
+import point from './point.js';
 
 /**
  * @description Test if polygon(s) crosses line(s).
  * @param {Polygons} polygons Polygon to test.
  * @param {Lines} lines Lines to test.
  * @private
- * @return {Boolean} True if crosses otherwise false.
+ * @returns {Boolean} True if crosses otherwise false.
  */
 const crossesLine = (polygons, lines) => {
   return line.crossesPolygon(lines, polygons);
@@ -17,7 +17,7 @@ const crossesLine = (polygons, lines) => {
  * @param {Polygons} polygons Polygon to test.
  * @param {Points} points Points to test.
  * @private
- * @return {Boolean} True if crosses otherwise false.
+ * @returns {Boolean} True if crosses otherwise false.
  */
 const crossesPoint = (polygons, points) => {
   return point.crossesPolygon(points, polygons);

@@ -1,7 +1,7 @@
 /**
  * Run de9im examples
  * @param {string} id Explorer DOM id
- * @return {Explorer} OpenLayer Explorer instance
+ * @returns {Explorer} OpenLayer Explorer instance
  */
 const loadExamples = function(id) {
   // ==================================================

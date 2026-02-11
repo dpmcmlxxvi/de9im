@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if point(s) intersects line(s).
  * @param {Points} points Point to be intersected.
  * @param {Lines} lines Line to be intersected.
  * @private
- * @return {Boolean} True if they intersect otherwise false.
+ * @returns {Boolean} True if they intersect otherwise false.
  */
 const intersectsLine = (points, lines) => {
   if (util.helpers.disjoint(points, lines)) {
@@ -21,7 +21,7 @@ const intersectsLine = (points, lines) => {
  * @param {Points} points1 Point #1 to test.
  * @param {Points} points2 Point #2 to test.
  * @private
- * @return {Boolean} True if they intersect otherwise false.
+ * @returns {Boolean} True if they intersect otherwise false.
  */
 const intersectsPoint = (points1, points2) => {
   if (util.helpers.disjoint(points1, points2)) {
@@ -37,7 +37,7 @@ const intersectsPoint = (points1, points2) => {
  * @param {Points} points Points to be tested.
  * @param {Polygons} polygons Polygons to be tested.
  * @private
- * @return {Boolean} True if intersecting otherwise false.
+ * @returns {Boolean} True if intersecting otherwise false.
  */
 const intersectsPolygon = (points, polygons) => {
   if (util.helpers.disjoint(points, polygons)) {

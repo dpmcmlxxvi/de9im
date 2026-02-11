@@ -1,4 +1,4 @@
-import triangulate from './triangulate';
+import triangulate from './triangulate.js';
 import * as turf from '@turf/turf';
 
 /**
@@ -8,7 +8,7 @@ import * as turf from '@turf/turf';
  * @param {Polygon} subject Triangle to be clipped.
  * @param {Polygon} clipper Triangle with which to clip.
  * @private
- * @return {FeatureCollection<Polygon>} Triangle clipped components.
+ * @returns {FeatureCollection<Polygon>} Triangle clipped components.
  */
 const clip = (subject, clipper) => {
   const triangles = [];
@@ -42,7 +42,7 @@ const clip = (subject, clipper) => {
  * @param {Polygon} subject Triangle to be clipped.
  * @param {Polygon} clipper Triangle with which to clip.
  * @private
- * @return {FeatureCollection<Polygon>} Collection of clipped intersections
+ * @returns {FeatureCollection<Polygon>} Collection of clipped intersections
  *                                      or null if intersection failed.
  */
 const clipDifference = (subject, clipper) => {
@@ -59,7 +59,7 @@ const clipDifference = (subject, clipper) => {
         triangles.push(feature);
       });
     });
-  } catch (e) {
+  } catch (_) {
     // Turf differrence can fail for edge cases due to one of their
     // dependencies not handling numerical precision well.
     // It is discussed at length in their issue tracker.
@@ -77,7 +77,7 @@ const clipDifference = (subject, clipper) => {
  * @param {Polygon} subject Triangle to be clipped.
  * @param {Polygon} clipper Triangle with which to clip.
  * @private
- * @return {FeatureCollection<Polygon>} Collection of clipped intersections
+ * @returns {FeatureCollection<Polygon>} Collection of clipped intersections
  *                                      or null if intersection failed.
  */
 const clipIntersection = (subject, clipper) => {
@@ -96,7 +96,7 @@ const clipIntersection = (subject, clipper) => {
         });
       });
     }
-  } catch (e) {
+  } catch (_) {
     // Turf intersect can fail for edge cases due to one of their
     // dependencies not handling numerical precision well.
     // It is discussed at length in their issue tracker.
@@ -114,7 +114,7 @@ const clipIntersection = (subject, clipper) => {
  * @param {LineString} subject Segment to be clipped.
  * @param {FeatureCollection<LineString>} clippers Segments with which to clip.
  * @private
- * @return {LineString} Segment clipped partitioning. Note line may contain
+ * @returns {LineString} Segment clipped partitioning. Note line may contain
  *                      duplicate points if partitioned but multiple clippers.
  */
 const segment = (subject, clippers) => {
@@ -122,9 +122,11 @@ const segment = (subject, clippers) => {
 
   // Split subject at intersection points and collect coordinates.
   // Turf only finds interections where the segments are non-parallel.
-  const intersections = turf.lineIntersect(subject, clippers);
-  turf.coordEach(intersections, (coordinate) => {
-    vertices.push(coordinate);
+  turf.featureEach(clippers, (clipper) => {
+    const intersections = turf.lineIntersect(subject, clipper);
+    turf.coordEach(intersections, (coordinate) => {
+      vertices.push(coordinate);
+    });
   });
 
   // Split subject at overlap points if no intersections found.
@@ -155,12 +157,11 @@ const segment = (subject, clippers) => {
  * @param {Polygon} subject Triangle to be clipped.
  * @param {FeatureCollection<Polygon>} clippers Triangles with which to clip.
  * @private
- * @return {FeatureCollection<Polygon>} Triangle clipped partitioning.
+ * @returns {FeatureCollection<Polygon>} Triangle clipped partitioning.
  */
 const triangle = (subject, clippers) => {
   let subjects = [subject];
-
-  turf.featureEach(clippers, (clipper, i) => {
+  turf.featureEach(clippers, (clipper, _) => {
     // Clip all subjects with the current clipper and then put the resulting
     // triangle partition back in the queue to be clipped by the next clipper.
     const parts = [];

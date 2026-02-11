@@ -1,13 +1,13 @@
-import contains from './src/contains';
-import coveredby from './src/coveredby';
-import covers from './src/covers';
-import crosses from './src/crosses';
-import disjoint from './src/disjoint';
-import equals from './src/equals';
-import intersects from './src/intersects';
-import overlaps from './src/overlaps';
-import touches from './src/touches';
-import within from './src/within';
+import contains from './src/contains/index.js';
+import coveredby from './src/coveredby/index.js';
+import covers from './src/covers/index.js';
+import crosses from './src/crosses/index.js';
+import disjoint from './src/disjoint/index.js';
+import equals from './src/equals/index.js';
+import intersects from './src/intersects/index.js';
+import overlaps from './src/overlaps/index.js';
+import touches from './src/touches/index.js';
+import within from './src/within/index.js';
 
 export default {
   contains,

@@ -1,9 +1,9 @@
-import helpers from './helpers';
-import line from './line';
-import meta from './meta';
-import partition from './partition';
-import point from './point';
-import triangulate from './triangulate';
+import helpers from './helpers.js';
+import line from './line.js';
+import meta from './meta.js';
+import partition from './partition.js';
+import point from './point.js';
+import triangulate from './triangulate.js';
 import * as turf from '@turf/turf';
 
 /**
@@ -17,7 +17,7 @@ import * as turf from '@turf/turf';
  * @param {Polygons} polygons1 Polygons #1.
  * @param {Polygons} polygons2 Polygons #2.
  * @private
- * @return {Boolean} True if boundary's intersect otherwise false.
+ * @returns {Boolean} True if boundary's intersect otherwise false.
  */
 const isBoundaryIntersecting = (polygons1, polygons2) => {
   // Flatten both polygons then intersect their boundaries.
@@ -37,7 +37,7 @@ const isBoundaryIntersecting = (polygons1, polygons2) => {
  * @param {Array} coordinates1 Coordinates #1 array.
  * @param {Array} coordinates2 Coordinates #2 array.
  * @private
- * @return {Boolean} True if coordinates are similar otherwise false.
+ * @returns {Boolean} True if coordinates are similar otherwise false.
  */
 const isCoordinateSimilar = (coordinates1, coordinates2) => {
   // First find a pair of coordinates that are equal then check rest of array
@@ -57,7 +57,7 @@ const isCoordinateSimilar = (coordinates1, coordinates2) => {
  * @param {Polygons} polygons1 Polygon #1.
  * @param {Polygons} polygons2 Polygon #2.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const isInPolygon = (polygons1, polygons2) => {
   // Check that all vertices in #1 are in the interior of #2
@@ -78,7 +78,7 @@ const isInPolygon = (polygons1, polygons2) => {
  * @param {Polygons} polygons1 Polygon #1.
  * @param {Polygons} polygons2 Polygon #2.
  * @private
- * @return {Boolean} True if similar otherwise false.
+ * @returns {Boolean} True if similar otherwise false.
  */
 const isPolygonSimilar = (polygons1, polygons2) => {
   // Flatten all polygon rings into lines then search for matches.
@@ -109,7 +109,7 @@ const isPolygonSimilar = (polygons1, polygons2) => {
  * @param {Boolean} [within] True if relationship is "within" otherwise
  *                           "outside". Default is true.
  * @private
- * @return {Boolean} True if relationship met otherwise false.
+ * @returns {Boolean} True if relationship met otherwise false.
  */
 const relate = (polygons1, polygons2, boundary, every, within) => {
   boundary = boundary !== false;

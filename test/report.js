@@ -1,10 +1,10 @@
 // Generate report of timing bench tests
-const de9im = require('../de9im');
-const fs = require('fs');
-const glob = require('glob');
-const json2md = require('json2md');
-const pkg = require('../package');
-const path = require('path');
+import de9im from '../index.js';
+import fs from 'fs';
+import glob from 'glob';
+import json2md from 'json2md';
+import pkg from "./package.json" with { type: "json" };
+import path from 'path';
 
 // Create report introduction
 const title = 'Timing bench test results for `' + pkg.name + '`';
@@ -46,7 +46,7 @@ glob.sync(pattern).forEach((filepath) => {
 });
 
 // Sort entries by geometries then predicates.
-let sorter = rows.map((row, index) => {
+let sorter = rows.map((row, _) => {
   return [row['first'], row['second'], row['relation']].join('-');
 });
 sorter = sorter.sort().map((value, index) => {
@@ -83,10 +83,10 @@ const data = [
 
 // Generate report, center columns, and remove multiple newlines for linting.
 let report = json2md(data);
-report = report.replace(/\| \-/g, '|:-');
-report = report.replace(/\- \|/g, '-:|');
+report = report.replace(/| -/g, '|:-');
+report = report.replace(/- |/g, '-:|');
 report = report.replace(/\n\n/g, '\n');
 
 // Export to file.
-filename = path.join(__dirname, '..', 'bench.md');
+let filename = path.join(__dirname, '..', 'bench.md');
 fs.writeFileSync(filename, report);

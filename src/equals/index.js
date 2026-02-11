@@ -1,6 +1,6 @@
-import contains from '../contains';
-import util from '../util';
-import within from '../within';
+import contains from '../contains/index.js';
+import util from '../util/index.js';
+import within from '../within/index.js';
 
 /**
  * @description Check if geojson #1 equals geojson #2.
@@ -8,7 +8,7 @@ import within from '../within';
  * @param {GeoJSON} geojson2 GeoJSON #2.
  * @param {Boolean} [error=true] If true unsupported geometries throw an
  *                               error, otherwise they return false.
- * @return {Boolean} True if equals otherwise false.
+ * @returns {Boolean} True if equals otherwise false.
  */
 const equals = (geojson1, geojson2, error=true) => {
   const type1 = util.invariant.type(geojson1);

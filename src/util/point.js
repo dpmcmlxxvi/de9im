@@ -1,5 +1,5 @@
-import helpers from './helpers';
-import meta from './meta';
+import helpers from './helpers.js';
+import meta from './meta.js';
 import * as turf from '@turf/turf';
 
 /**
@@ -20,7 +20,7 @@ import * as turf from '@turf/turf';
  * @param {Boolean} [within] True if relationship is "within" otherwise
  *                           "outside". Default is true.
  * @private
- * @return {Boolean} True if point(s) is in line otherwise false.
+ * @returns {Boolean} True if point(s) is in line otherwise false.
  */
 const isInLine = (geojson, lines, boundary, every, within) => {
   boundary = boundary !== false;
@@ -53,7 +53,7 @@ const isInLine = (geojson, lines, boundary, every, within) => {
  * @param {Boolean} [within] True if relationship is "within" otherwise
  *                           "outside". Default is true.
  * @private
- * @return {Boolean} True if point(s) is in point otherwise false.
+ * @returns {Boolean} True if point(s) is in point otherwise false.
  */
 const isInPoint = (geojson, points, every, within) => {
   every = every !== false;
@@ -88,7 +88,7 @@ const isInPoint = (geojson, points, every, within) => {
  * @param {Boolean} [within] True if relationship is "within" otherwise
  *                           "outside". Default is true.
  * @private
- * @return {Boolean} True if point(s) is in polygon otherwise false.
+ * @returns {Boolean} True if point(s) is in polygon otherwise false.
  */
 const isInPolygon = (geojson, polygons, boundary, every, within) => {
   boundary = boundary !== false;

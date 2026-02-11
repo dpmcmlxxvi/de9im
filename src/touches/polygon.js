@@ -1,13 +1,13 @@
-import line from './line';
-import point from './point';
-import util from '../util';
+import line from './line.js';
+import point from './point.js';
+import util from '../util/index.js';
 
 /**
  * @description Test if polygon(s) touches lines(s).
  * @param {Polygons} polygons Polygons to test.
  * @param {Lines} lines Lines to test.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesLine = (polygons, lines) => {
   return line.touchesPolygon(lines, polygons);
@@ -18,7 +18,7 @@ const touchesLine = (polygons, lines) => {
  * @param {Polygons} polygons Polygons to test.
  * @param {Points} points Points to test.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesPoint = (polygons, points) => {
   return point.touchesPolygon(points, polygons);
@@ -29,7 +29,7 @@ const touchesPoint = (polygons, points) => {
  * @param {Polygons} polygons1 Polygons #1.
  * @param {Polygons} polygons2 Polygons #2.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesPolygon = (polygons1, polygons2) => {
   if (util.helpers.disjoint(polygons1, polygons2)) {

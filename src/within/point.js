@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if point(s) are within line(s).
  * @param {Points} points Point to test.
  * @param {Lines} lines Lines to test.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const withinLine = (points, lines) => {
   if (util.helpers.disjoint(points, lines)) {
@@ -28,7 +28,7 @@ const withinLine = (points, lines) => {
  * @param {Points} points1 Point #1 to test.
  * @param {Points} points2 Point #2 to test.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const withinPoint = (points1, points2) => {
   if (util.helpers.disjoint(points1, points2)) {
@@ -44,7 +44,7 @@ const withinPoint = (points1, points2) => {
  * @param {Points} points Point to test.
  * @param {Polygons} polygons Polygons to test.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const withinPolygon = (points, polygons) => {
   if (util.helpers.disjoint(points, polygons)) {

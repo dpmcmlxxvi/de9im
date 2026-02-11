@@ -1,8 +1,10 @@
-const de9im = require('./de9im.loader').default;
-const fs = require('fs');
-const glob = require('glob');
-const path = require('path');
-const tap = require('tap');
+import de9im from '../index.js';
+import fs from 'fs';
+import { glob } from 'glob';
+import path from 'path';
+import tap from 'tap';
+
+const __dirname = new URL('.', import.meta.url).pathname;
 
 const ext = '*.geojson';
 

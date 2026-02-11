@@ -4,7 +4,7 @@ import * as turf from '@turf/turf';
  * @description Get base geometry type. Defined only for homogenous geometries.
  * @param {GeoJSON} geojson GeoJSON object.
  * @private
- * @return {Point|LineString|Polygon|Mixed|Unknown} Base geometry type.
+ * @returns {Point|LineString|Polygon|Mixed|Unknown} Base geometry type.
  */
 const type = (geojson) => {
   // Check if we have a single geometry type.
@@ -15,7 +15,7 @@ const type = (geojson) => {
   }
 
   // For a collection or multipart geometry, flatten to find a common type.
-  return turf.flattenReduce(geojson, (baseType, feature, index) => {
+  return turf.flattenReduce(geojson, (baseType, feature, _) => {
     if (baseType === 'Mixed') {
       return baseType;
     }

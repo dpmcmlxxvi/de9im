@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if line(s) #1 is within line(s) #2.
  * @param {Lines} lines1 Line #1.
  * @param {Lines} lines2 Line #2.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const withinLine = (lines1, lines2) => {
   if (util.helpers.disjoint(lines1, lines2)) {
@@ -38,7 +38,7 @@ const withinLine = (lines1, lines2) => {
  * @param {Lines} lines Line to be tested.
  * @param {Polgons} polygons Polygon to be tested.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const withinPolygon = (lines, polygons) => {
   if (util.helpers.disjoint(lines, polygons)) {

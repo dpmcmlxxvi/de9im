@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if point(s) #1 overlaps point(s) #2.
  * @param {Points} points1 Point #1 to be tested.
  * @param {Points} points2 Point #2 to be tested.
  * @private
- * @return {Boolean} True if they overlap otherwise false.
+ * @returns {Boolean} True if they overlap otherwise false.
  */
 const overlapsPoint = (points1, points2) => {
   if (util.helpers.disjoint(points1, points2)) {

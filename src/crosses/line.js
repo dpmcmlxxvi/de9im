@@ -1,13 +1,13 @@
-import point from './point';
+import point from './point.js';
 import * as turf from '@turf/turf';
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if line(s) #1 crosses line(s) #2.
  * @param {Lines} lines1 Line #1.
  * @param {Lines} lines2 Line #2.
  * @private
- * @return {Boolean} True if they cross otherwise false.
+ * @returns {Boolean} True if they cross otherwise false.
  */
 const crossesLine = (lines1, lines2) => {
   if (util.helpers.disjoint(lines1, lines2)) {
@@ -34,7 +34,7 @@ const crossesLine = (lines1, lines2) => {
  * @param {Lines} lines Line to test.
  * @param {Points} points Points to test.
  * @private
- * @return {Boolean} True if crosses otherwise false.
+ * @returns {Boolean} True if crosses otherwise false.
  */
 const crossesPoint = (lines, points) => {
   return point.crossesLine(points, lines);
@@ -45,7 +45,7 @@ const crossesPoint = (lines, points) => {
  * @param {Lines} lines Lines to test.
  * @param {Polygons} polygons Polygon to test.
  * @private
- * @return {Boolean} True if crosses otherwise false.
+ * @returns {Boolean} True if crosses otherwise false.
  */
 const crossesPolygon = (lines, polygons) => {
   if (util.helpers.disjoint(lines, polygons)) {

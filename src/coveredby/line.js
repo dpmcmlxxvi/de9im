@@ -1,12 +1,12 @@
-import line from '../within/line';
-import util from '../util';
+import line from '../within/line.js';
+import util from '../util/index.js';
 
 /**
  * @description Test if line(s) #1 covered by line(s) #2.
  * @param {Lines} lines1 Line #1 to be tested.
  * @param {Lines} lines2 Line #2 to be tested.
  * @private
- * @return {Boolean} True if line is covered by otherwise false.
+ * @returns {Boolean} True if line is covered by otherwise false.
  */
 const coveredbyLine = (lines1, lines2) => {
   return line.withinLine(lines1, lines2);
@@ -17,7 +17,7 @@ const coveredbyLine = (lines1, lines2) => {
  * @param {Lines} lines Lines to test.
  * @param {Polygons} polygons Polygon to test.
  * @private
- * @return {Boolean} True if covers otherwise false.
+ * @returns {Boolean} True if covers otherwise false.
  */
 const coveredbyPolygon = (lines, polygons) => {
   if (util.helpers.disjoint(lines, polygons)) {

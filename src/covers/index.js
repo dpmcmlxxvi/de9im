@@ -1,5 +1,5 @@
-import coveredby from '../coveredby';
-import util from '../util';
+import coveredby from '../coveredby/index.js';
+import util from '../util/index.js';
 
 /**
  * @description Check if geojson #1 covers geojson #2.
@@ -7,7 +7,7 @@ import util from '../util';
  * @param {GeoJSON} geojson2 GeoJSON #2.
  * @param {Boolean} [error=true] If true unsupported geometries throw an
  *                               error, otherwise they return false.
- * @return {Boolean} True if covers otherwise false.
+ * @returns {Boolean} True if covers otherwise false.
  */
 const covers = (geojson1, geojson2, error=true) => {
   const type1 = util.invariant.type(geojson1);

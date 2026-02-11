@@ -5,7 +5,7 @@ import * as turf from '@turf/turf';
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each coordinate of GeoJSON.
  * @private
- * @return {Boolean} True if every coordinate returns true otherwise false.
+ * @returns {Boolean} True if every coordinate returns true otherwise false.
  */
 const coordEvery = (geojson, callback) => {
   return reduceEvery(geojson, callback, turf.coordReduce);
@@ -16,7 +16,7 @@ const coordEvery = (geojson, callback) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each coordinate of GeoJSON.
  * @private
- * @return {Boolean} True if some coordinate returns true otherwise false.
+ * @returns {Boolean} True if some coordinate returns true otherwise false.
  */
 const coordSome = (geojson, callback) => {
   return reduceSome(geojson, callback, turf.coordReduce);
@@ -27,7 +27,7 @@ const coordSome = (geojson, callback) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each feature of GeoJSON.
  * @private
- * @return {Boolean} True if every feature returns true otherwise false.
+ * @returns {Boolean} True if every feature returns true otherwise false.
  */
 const featureEvery = (geojson, callback) => {
   return reduceEvery(geojson, callback, turf.featureReduce);
@@ -38,7 +38,7 @@ const featureEvery = (geojson, callback) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each feature of GeoJSON.
  * @private
- * @return {Boolean} True if some feature returns true otherwise false.
+ * @returns {Boolean} True if some feature returns true otherwise false.
  */
 const featureSome = (geojson, callback) => {
   return reduceSome(geojson, callback, turf.featureReduce);
@@ -49,7 +49,7 @@ const featureSome = (geojson, callback) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each feature of GeoJSON.
  * @private
- * @return {Boolean} True if some feature returns true otherwise false.
+ * @returns {Boolean} True if some feature returns true otherwise false.
  */
 const flattenEvery = (geojson, callback) => {
   return reduceEvery(geojson, callback, turf.flattenReduce);
@@ -60,7 +60,7 @@ const flattenEvery = (geojson, callback) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each feature of GeoJSON.
  * @private
- * @return {Boolean} True if some feature returns true otherwise false.
+ * @returns {Boolean} True if some feature returns true otherwise false.
  */
 const flattenSome = (geojson, callback) => {
   return reduceSome(geojson, callback, turf.flattenReduce);
@@ -72,7 +72,7 @@ const flattenSome = (geojson, callback) => {
  * @param {function} callback Callback for each GeoJSON reduction item.
  * @param {function} reducer Turf reduction function.
  * @private
- * @return {Boolean} True if every item returns true otherwise false.
+ * @returns {Boolean} True if every item returns true otherwise false.
  */
 const reduceEvery = (geojson, callback, reducer) => {
   return reducer(geojson, (value, feature) => {
@@ -86,7 +86,7 @@ const reduceEvery = (geojson, callback, reducer) => {
  * @param {function} callback Callback for each GeoJSON reduction item.
  * @param {function} reducer Turf reduction function.
  * @private
- * @return {Boolean} True if some item returns true otherwise false.
+ * @returns {Boolean} True if some item returns true otherwise false.
  */
 const reduceSome = (geojson, callback, reducer) => {
   return reducer(geojson, (value, feature) => {
@@ -99,7 +99,7 @@ const reduceSome = (geojson, callback, reducer) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each segment of GeoJSON.
  * @private
- * @return {Boolean} True if every segment returns true otherwise false.
+ * @returns {Boolean} True if every segment returns true otherwise false.
  */
 const segmentEvery = (geojson, callback) => {
   return reduceEvery(geojson, callback, turf.segmentReduce);
@@ -110,7 +110,7 @@ const segmentEvery = (geojson, callback) => {
  * @param {GeoJSON} geojson Any GeoJSON.
  * @param {function} callback Callback for each segment of GeoJSON.
  * @private
- * @return {Boolean} True if some segment returns true otherwise false.
+ * @returns {Boolean} True if some segment returns true otherwise false.
  */
 const segmentSome = (geojson, callback) => {
   return reduceSome(geojson, callback, turf.segmentReduce);

@@ -1,12 +1,12 @@
 import * as turf from '@turf/turf';
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if polygon(s) #1 overlaps polygon(s) #2.
  * @param {Polygons} polygons1 Polygon #1.
  * @param {Polygons} polygons2 Polygon #2.
  * @private
- * @return {Boolean} True if overlapping otherwise false.
+ * @returns {Boolean} True if overlapping otherwise false.
  */
 const overlapsPolygon = (polygons1, polygons2) => {
   if (util.helpers.disjoint(polygons1, polygons2)) {
@@ -28,10 +28,10 @@ const overlapsPolygon = (polygons1, polygons2) => {
 
     const centroid = turf.centroid(triangle);
     if (overlap.within === false &&
-        util.point.isInPolygon(centroid, polygons2, false)) {
+        util.point.isInPolygon(centroid, triangulation2, false)) {
       overlap.within = true;
     } else if (overlap.outside === false &&
-               util.point.isInPolygon(centroid, polygons2, true) === false) {
+               util.point.isInPolygon(centroid, triangulation2, true) === false) {
       overlap.outside = true;
     }
 

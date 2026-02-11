@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v2
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - name: Use Node.js 25.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 25.x
       - name: npm install, npm test
         run: |
           npm install

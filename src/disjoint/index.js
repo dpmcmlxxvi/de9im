@@ -1,5 +1,5 @@
-import intersects from '../intersects';
-import util from '../util';
+import intersects from '../intersects/index.js';
+import util from '../util/index.js';
 
 /**
  * @description Check if geojson #1 is disjoint geojson #2.
@@ -7,7 +7,7 @@ import util from '../util';
  * @param {GeoJSON} geojson2 GeoJSON #2.
  * @param {Boolean} [error=true] If true unsupported geometries throw an
  *                               error, otherwise they return false.
- * @return {Boolean} True if disjoint otherwise false.
+ * @returns {Boolean} True if disjoint otherwise false.
  */
 const disjoint = (geojson1, geojson2, error=true) => {
   const type1 = util.invariant.type(geojson1);
