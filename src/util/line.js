@@ -1,7 +1,7 @@
-import helpers from './helpers';
-import meta from './meta';
-import partition from './partition';
-import point from './point';
+import helpers from './helpers.js';
+import meta from './meta.js';
+import partition from './partition.js';
+import point from './point.js';
 import * as turf from '@turf/turf';
 
 /**
@@ -14,7 +14,7 @@ import * as turf from '@turf/turf';
  * @description Get line ending point.
  * @param {LineString} linestring Line from which to get ending point.
  * @private
- * @return {Point} Ending point.
+ * @returns {Point} Ending point.
  */
 const end = (linestring) => {
   const length = linestring.geometry.coordinates.length;
@@ -26,7 +26,7 @@ const end = (linestring) => {
  * @param {Lines} lines1 Line #1 to be tested.
  * @param {Lines} lines2 Line #2 to be tested.
  * @private
- * @return {Boolean} True if they are disjoint otherwise false.
+ * @returns {Boolean} True if they are disjoint otherwise false.
  */
 const isDisjoint = (lines1, lines2) => {
   // Check for segment/segment overlaps.
@@ -57,7 +57,7 @@ const isDisjoint = (lines1, lines2) => {
  * @param {Boolean} [boundary] True if line boundary should be included.
  *                  Default is true.
  * @private
- * @return {Boolean} True if they have intersections otherwise false.
+ * @returns {Boolean} True if they have intersections otherwise false.
  */
 const isIntersecting = (lines1, lines2, boundary) => {
   boundary = boundary !== false;
@@ -83,7 +83,7 @@ const isIntersecting = (lines1, lines2, boundary) => {
  * @param {Lines} lines Line to be tested.
  * @param {Points} points Points to be tested.
  * @private
- * @return {Boolean} True if on boundary otherwise false.
+ * @returns {Boolean} True if on boundary otherwise false.
  */
 const isOnBoundary = (lines, points) => {
   return meta.featureEvery(points, (pt) => {
@@ -113,7 +113,7 @@ const isOnBoundary = (lines, points) => {
  * @param {Number} [tolerance] Tolerance distance to match overlapping line
  *                             segments (kilometers). Default is 0.
  * @private
- * @return {Boolean} True if they have overlaps otherwise false.
+ * @returns {Boolean} True if they have overlaps otherwise false.
  */
 const isOverlapping = (lines1, lines2, boundary, every, within, tolerance) => {
   boundary = boundary !== false;
@@ -147,7 +147,7 @@ const isOverlapping = (lines1, lines2, boundary, every, within, tolerance) => {
  * @param {Lines} lines1 Line #1.
  * @param {Lines} lines2 Line #2.
  * @private
- * @return {Boolean} True if similar otherwise false.
+ * @returns {Boolean} True if similar otherwise false.
  */
 const isSimilar = (lines1, lines2) => {
   // Flatten all lines then search for matches.
@@ -170,7 +170,7 @@ const isSimilar = (lines1, lines2) => {
  * @param {Lines} lines1 Line #1 to be tested.
  * @param {Lines} lines2 Line #2 to be tested.
  * @private
- * @return {Boolean} True if their boundaries touch otherwise false.
+ * @returns {Boolean} True if their boundaries touch otherwise false.
  */
 const isTouching = (lines1, lines2) => {
   // Flatten both lines and check if end points are equal.
@@ -198,7 +198,7 @@ const isTouching = (lines1, lines2) => {
  * @description Get line starting point.
  * @param {LineString} linestring Line from which to get starting point.
  * @private
- * @return {Point} Starting point.
+ * @returns {Point} Starting point.
  */
 const start = (linestring) => {
   return turf.point(linestring.geometry.coordinates[0]);

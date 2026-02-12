@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if point(s) touches line(s).
  * @param {Points} points Points to be tested.
  * @param {Lines} lines Lines to be tested.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesLine = (points, lines) => {
   if (util.helpers.disjoint(points, lines)) {
@@ -26,7 +26,7 @@ const touchesLine = (points, lines) => {
  * @param {Points} points Points to be tested.
  * @param {Polygons} polygons Polygons to be tested.
  * @private
- * @return {Boolean} True if touching otherwise false.
+ * @returns {Boolean} True if touching otherwise false.
  */
 const touchesPolygon = (points, polygons) => {
   if (util.helpers.disjoint(points, polygons)) {

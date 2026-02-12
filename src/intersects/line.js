@@ -1,13 +1,13 @@
-import point from './point';
+import point from './point.js';
 import * as turf from '@turf/turf';
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if line(s) #1 intersects line(s) #2.
  * @param {Lines} lines1 Line #1 to be intersected.
  * @param {Lines} lines2 Line #2 to be intersected.
  * @private
- * @return {Boolean} True if they intersect otherwise false.
+ * @returns {Boolean} True if they intersect otherwise false.
  */
 const intersectsLine = (lines1, lines2) => {
   if (util.helpers.disjoint(lines1, lines2)) {
@@ -22,7 +22,7 @@ const intersectsLine = (lines1, lines2) => {
  * @param {Lines} lines Line to be intersected.
  * @param {Points} points Point to be intersected.
  * @private
- * @return {Boolean} True if they intersect otherwise false.
+ * @returns {Boolean} True if they intersect otherwise false.
  */
 const intersectsPoint = (lines, points) => {
   return point.intersectsLine(points, lines);
@@ -33,7 +33,7 @@ const intersectsPoint = (lines, points) => {
  * @param {Lines} lines Line to be tested.
  * @param {Polygons} polygons Polygons to be tested.
  * @private
- * @return {Boolean} True if intersecting otherwise false.
+ * @returns {Boolean} True if intersecting otherwise false.
  */
 const intersectsPolygon = (lines, polygons) => {
   if (util.helpers.disjoint(lines, polygons)) {

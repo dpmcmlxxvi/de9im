@@ -1,13 +1,13 @@
-import line from './line';
-import point from './point';
-import util from '../util';
+import line from './line.js';
+import point from './point.js';
+import util from '../util/index.js';
 
 /**
  * @description Test if polygon(s) intersects line(s).
  * @param {Polygons} polygons Polygons to be tested.
  * @param {Lines} lines Line to be tested.
  * @private
- * @return {Boolean} True if intersecting otherwise false.
+ * @returns {Boolean} True if intersecting otherwise false.
  */
 const intersectsLine = (polygons, lines) => {
   return line.intersectsPolygon(lines, polygons);
@@ -18,7 +18,7 @@ const intersectsLine = (polygons, lines) => {
  * @param {Polygons} polygons Polygons to be tested.
  * @param {Points} points Points to be tested.
  * @private
- * @return {Boolean} True if intersecting otherwise false.
+ * @returns {Boolean} True if intersecting otherwise false.
  */
 const intersectsPoint = (polygons, points) => {
   return point.intersectsPolygon(points, polygons);
@@ -29,7 +29,7 @@ const intersectsPoint = (polygons, points) => {
  * @param {Polygons} polygons1 Polygons #1.
  * @param {Polygons} polygons2 Polygons #2.
  * @private
- * @return {Boolean} True if intersecting otherwise false.
+ * @returns {Boolean} True if intersecting otherwise false.
  */
 const intersectsPolygon = (polygons1, polygons2) => {
   if (util.helpers.disjoint(polygons1, polygons2)) {

@@ -1,7 +1,7 @@
-import line from './line';
-import point from './point';
-import polygon from './polygon';
-import util from '../util';
+import line from './line.js';
+import point from './point.js';
+import polygon from './polygon.js';
+import util from '../util/index.js';
 
 /**
  * @description Check if geojson #1 overlaps geojson #2.
@@ -9,7 +9,7 @@ import util from '../util';
  * @param {GeoJSON} geojson2 GeoJSON #2.
  * @param {Boolean} [error=true] If true unsupported geometries throw an
  *                               error, otherwise they return false.
- * @return {Boolean} True if overlaps otherwise false.
+ * @returns {Boolean} True if overlaps otherwise false.
  */
 const overlaps = (geojson1, geojson2, error=true) => {
   const type1 = util.invariant.type(geojson1);

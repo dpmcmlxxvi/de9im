@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if point(s) crosses line(s).
  * @param {Points} points Points to test.
  * @param {Lines} lines Line to test.
  * @private
- * @return {Boolean} True if crosses otherwise false.
+ * @returns {Boolean} True if crosses otherwise false.
  */
 const crossesLine = (points, lines) => {
   if (util.helpers.disjoint(points, lines)) {
@@ -25,7 +25,7 @@ const crossesLine = (points, lines) => {
  * @param {Points} points Points to test.
  * @param {Polygons} polygons Polygon to test.
  * @private
- * @return {Boolean} True if crosses otherwise false.
+ * @returns {Boolean} True if crosses otherwise false.
  */
 const crossesPolygon = (points, polygons) => {
   if (util.helpers.disjoint(points, polygons)) {

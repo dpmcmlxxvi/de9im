@@ -1,15 +1,15 @@
 // Perform timing bench tests
-const benny = require('benny');
-const de9im = require('../de9im');
-const fs = require('fs');
-const glob = require('glob');
-const pkg = require('../package');
-const path = require('path');
+import benny from 'benny';
+import de9im from '../index.js';
+import fs from 'fs';
+import glob from 'glob';
+import pkg from "./package.json" with { type: "json" };
+import path from 'path';
 
 // Read all data in bench directory
 const pattern = path.join(__dirname, 'data', 'bench', '**', '*.geojson');
 glob.sync(pattern).forEach((filepath) => {
-  cases = [];
+  let cases = [];
 
   // Extract fixtures
   const name = path.parse(filepath).name;
@@ -27,7 +27,7 @@ glob.sync(pattern).forEach((filepath) => {
       cases.push(benny.add(predicate, () => {
         de9im[predicate](feature1, feature2);
       }));
-    } catch (error) {
+    } catch (_) {
       console.log('Skipping (' + type + ') with predicate ' + predicate +
                   '. Not supported.');
     }

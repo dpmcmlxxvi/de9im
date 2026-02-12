@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if line(s) #1 overlaps line(s) #2.
  * @param {Lines} lines1 Line #1 to be tested.
  * @param {Lines} lines2 Line #2 to be tested.
  * @private
- * @return {Boolean} True if they overlap otherwise false.
+ * @returns {Boolean} True if they overlap otherwise false.
  */
 const overlapsLine = (lines1, lines2) => {
   if (util.helpers.disjoint(lines1, lines2)) {

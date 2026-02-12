@@ -1,14 +1,15 @@
 import earcut from 'earcut';
+import { flatten } from 'earcut';
 import * as turf from '@turf/turf';
 
 /**
  * @description Perform constrained triangulation of feature.
  * @param {Polygon} polygon Polygon to triangulate.
  * @private
- * @return {FeatureCollection<Polygon>} Feature collection of triangles.
+ * @returns {FeatureCollection<Polygon>} Feature collection of triangles.
  */
 const triangulate = (polygon) => {
-  const data = earcut.flatten(polygon.geometry.coordinates);
+  const data = flatten(polygon.geometry.coordinates);
   const triangles = earcut(data.vertices, data.holes, data.dimensions);
 
   const polygons = [];
@@ -43,7 +44,7 @@ const triangulate = (polygon) => {
  *              is performed on each polygon separately and then combined.
  * @param {Polygons} geojson Features to triangulate.
  * @private
- * @return {FeatureCollection<Polygon>} Feature collection of triangles.
+ * @returns {FeatureCollection<Polygon>} Feature collection of triangles.
  */
 export default (geojson) => {
   const polygons = [];

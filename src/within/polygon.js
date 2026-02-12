@@ -1,11 +1,11 @@
-import util from '../util';
+import util from '../util/index.js';
 
 /**
  * @description Test if polygon(s) #1 is within polygon(s) #2.
  * @param {Polygons} polygons1 Polygon #1.
  * @param {Polygons} polygons2 Polygon #2.
  * @private
- * @return {Boolean} True if within otherwise false.
+ * @returns {Boolean} True if within otherwise false.
  */
 const withinPolygon = (polygons1, polygons2) => {
   if (util.helpers.disjoint(polygons1, polygons2)) {

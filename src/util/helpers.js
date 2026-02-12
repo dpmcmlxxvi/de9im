@@ -4,7 +4,7 @@ import * as turf from '@turf/turf';
  * @description Compute centroid of each segment in GeoJSON.
  * @param {GeoJSON} geojson GeoJSON of ilne features to process.
  * @private
- * @return {FeatureCollection<Point>} Collection of segment centroids.
+ * @returns {FeatureCollection<Point>} Collection of segment centroids.
  */
 const centroids = (geojson) => {
   // Compute centroid of each feature.
@@ -20,7 +20,7 @@ const centroids = (geojson) => {
  * @param {GeoJSON} geojson1 GeoJSON #1 to test.
  * @param {GeoJSON} geojson2 GeoJSON #2 to test.
  * @private
- * @return {Boolean} True if bounding boxes are disjoint otherwise false.
+ * @returns {Boolean} True if bounding boxes are disjoint otherwise false.
  */
 const disjoint = (geojson1, geojson2) => {
   const bbox1 = (geojson1.bbox ? geojson1.bbox : turf.bbox(geojson1));
@@ -49,7 +49,7 @@ const disjoint = (geojson1, geojson2) => {
  * @param {Boolean} [reverse=false] True if coordinates #2 should be checked
  *                                  in reverse order from #1 otherwise false.
  * @private
- * @return {Boolean} True if are equal otherwise false.
+ * @returns {Boolean} True if are equal otherwise false.
  */
 const similar = (array1, array2, start1 = 0, start2 = 0, count =-1,
     reverse = false) => {

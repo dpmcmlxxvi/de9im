@@ -1,12 +1,12 @@
-import clipper from './clipper';
-import helpers from './helpers';
-import invariant from './invariant';
-import line from './line';
-import meta from './meta';
-import partition from './partition';
-import point from './point';
-import polygon from './polygon';
-import triangulate from './triangulate';
+import clipper from './clipper.js';
+import helpers from './helpers.js';
+import invariant from './invariant.js';
+import line from './line.js';
+import meta from './meta.js';
+import partition from './partition.js';
+import point from './point.js';
+import polygon from './polygon.js';
+import triangulate from './triangulate.js';
 
 export default {
   clipper,
