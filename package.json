@@ -22,7 +22,7 @@
     "test:bench": "run-s test:bench:run test:bench:report",
     "test:bench:run": "node ./test/bench.js",
     "test:bench:report": "node ./test/report.js",
-    "test:build": "tap ./test/*.test.js",
+    "test:build": "tap --coverage-report=lcov --coverage-report=text ./test/*.test.js",
     "test:lint": "eslint ./test/*.js"
   },
   "files": [
