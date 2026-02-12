@@ -28,9 +28,12 @@ const clip = (subject, clipper) => {
   // If no triangles were found then assume subject was not clipped.
   // This should only happen if Turf failed during intersection and
   // difference due to an on-going numerical precision bug.
+
+  /* c8 ignore start */
   if (triangles.length === 0) {
     triangles.push(subject);
   }
+  /* c8 ignore stop */
 
   return turf.featureCollection(triangles);
 };
@@ -59,6 +62,7 @@ const clipDifference = (subject, clipper) => {
         triangles.push(feature);
       });
     });
+  /* c8 ignore start */
   } catch (_) {
     // Turf differrence can fail for edge cases due to one of their
     // dependencies not handling numerical precision well.
@@ -66,6 +70,7 @@ const clipDifference = (subject, clipper) => {
     // https://github.com/Turfjs/turf/issues
     return null;
   }
+  /* c8 ignore stop */
 
   return triangles;
 };
@@ -96,6 +101,7 @@ const clipIntersection = (subject, clipper) => {
         });
       });
     }
+  /* c8 ignore start */
   } catch (_) {
     // Turf intersect can fail for edge cases due to one of their
     // dependencies not handling numerical precision well.
@@ -103,6 +109,7 @@ const clipIntersection = (subject, clipper) => {
     // https://github.com/Turfjs/turf/issues
     return null;
   }
+  /* c8 ignore stop */
 
   return triangles;
 };

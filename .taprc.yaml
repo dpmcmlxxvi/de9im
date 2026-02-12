@@ -1,0 +1,13 @@
+check-coverage: true
+reporter: tap
+coverage-report:
+  - lcov
+  - text
+  - text-summary
+  - json
+  - html
+branches: 100
+lines: 100
+functions: 100
+statements: 100
+typecheck: true
